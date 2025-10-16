@@ -8,6 +8,7 @@ import {
   FaInstagram,
   FaYoutube,
 } from "react-icons/fa";
+import logo from "../assets/logo_trimmed.svg";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -32,9 +33,9 @@ function Navbar() {
       </a>
 
       {/* Top Bar (hidden on mobile) */}
-      <div className="hidden md:block bg-sky-500 text-white text-sm">
+      <div className="hidden md:block bg-sky-500 text-white text-xs md:text-sm">
         <div className="container mx-auto max-w-7xl px-4 flex justify-between items-center p-2 md:p-3">
-          <div className="flex flex-wrap items-center gap-x-8 gap-y-2 text-base">
+          <div className="flex items-center gap-6 flex-nowrap">
             <a href="tel:+919820638066" className="flex items-center gap-2 hover:underline">
               <FaPhoneAlt aria-hidden="true" />
               <span>Call Us:</span>
@@ -44,7 +45,7 @@ function Navbar() {
             <div className="flex items-center gap-2">
               <FaClock aria-hidden="true" />
               <span>Hours:</span>
-              <span className="font-semibold">9:00am – 3:00pm</span>
+              <span className="font-semibold">7:30–1:00 & 3:00–6:00</span>
             </div>
 
             <a
@@ -55,19 +56,21 @@ function Navbar() {
             >
               <FaMapMarkerAlt aria-hidden="true" />
               <span>Address:</span>
-              <span className="font-semibold">220 Arcadia, Hiranandani Estate, Thane 400607</span>
+              <span className="font-semibold truncate">
+                220 Arcadia, Hiranandani Estate, Thane 400607
+              </span>
             </a>
           </div>
 
           <div className="flex gap-5">
             <a href="https://facebook.com" target="_blank" rel="noopener" className="hover:opacity-80" aria-label="Facebook">
-              <FaFacebookF size={20} />
+              <FaFacebookF size={18} />
             </a>
             <a href="https://instagram.com" target="_blank" rel="noopener" className="hover:opacity-80" aria-label="Instagram">
-              <FaInstagram size={20} />
+              <FaInstagram size={18} />
             </a>
             <a href="https://youtube.com" target="_blank" rel="noopener" className="hover:opacity-80" aria-label="YouTube">
-              <FaYoutube size={20} />
+              <FaYoutube size={18} />
             </a>
           </div>
         </div>
@@ -79,14 +82,21 @@ function Navbar() {
         role="navigation"
         aria-label="Primary"
       >
-        <div className="container mx-auto max-w-7xl px-4 flex justify-between items-center py-4">
-          {/* Logo */}
-          <Link to="/" className="flex items-baseline gap-2">
-            <h1 className="text-2xl font-extrabold tracking-tight">
-              <span className="text-green-700">Blossom</span>{" "}
-              <span className="text-orange-500">Preschool</span>
-            </h1>
+        <div className="container mx-auto max-w-7xl px-4 py-0.5 flex items-center gap-4">
+
+          {/* Logo only */}
+          <Link to="/" className="flex items-center flex-shrink-0">
+            <img
+              src={logo}
+              alt="Blossom Preschool logo"
+              className="block h-12 sm:h-16 lg:h-24 w-auto"
+            />
+            <span className="text-2xl font-extrabold text-sky-500">Growing Kids PreSchool</span>
+
+
           </Link>
+          {/* Spacer */}
+          <div className="flex-1" />
 
           {/* Desktop Menu */}
           <ul className="hidden md:flex items-center gap-8 text-lg">
