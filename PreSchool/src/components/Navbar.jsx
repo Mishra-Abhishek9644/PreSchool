@@ -10,6 +10,9 @@ import {
 } from "react-icons/fa";
 import logo from "../assets/logo_trimmed.svg";
 
+const LOGO_BLUE = "#0778BE";
+const LOGO_BLUE_DARK = "#055A8F";   // darker shade for hover/focus rings
+
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -33,8 +36,8 @@ function Navbar() {
       </a>
 
       {/* Top Bar (hidden on mobile) */}
-      <div className="hidden md:block bg-sky-500 text-white text-xs md:text-sm">
-        <div className="container mx-auto max-w-7xl px-4 flex justify-between items-center p-2 md:p-3">
+      <div className="hidden md:block" style={{ backgroundColor: LOGO_BLUE }}>
+        <div className="container mx-auto max-w-7xl px-4 flex justify-between items-center p-2 md:p-3 text-white text-xs md:text-sm">
           <div className="flex items-center gap-6 flex-nowrap">
             <a href="tel:+919820638066" className="flex items-center gap-2 hover:underline">
               <FaPhoneAlt aria-hidden="true" />
@@ -49,7 +52,7 @@ function Navbar() {
             </div>
 
             <a
-              href="https://maps.google.com/?q=220+Arcadia,+Hiranandani+Estate,+Thane+400607"
+              href="https://maps.google.com/?q=Plot%20No%20-%20A/80%20,%20Sai%20Dipak%20Row%20House%20Residency,%20Nr.%20Vinayak%20Row%20House%20Bhestan%20-%20395023."
               target="_blank"
               rel="noopener"
               className="flex items-center gap-2 hover:underline"
@@ -57,19 +60,19 @@ function Navbar() {
               <FaMapMarkerAlt aria-hidden="true" />
               <span>Address:</span>
               <span className="font-semibold truncate">
-                220 Arcadia, Hiranandani Estate, Thane 400607
+                Plot No - A/80 , Sai Dipak Row House Residency, Nr. Vinayak Row House Bhestan - 395023.
               </span>
             </a>
           </div>
 
           <div className="flex gap-5">
-            <a href="https://facebook.com" target="_blank" rel="noopener" className="hover:opacity-80" aria-label="Facebook">
+            <a href="https://www.facebook.com/profile.php?id=61572252436482" target="_blank" rel="noopener" className="hover:opacity-90" aria-label="Facebook">
               <FaFacebookF size={18} />
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener" className="hover:opacity-80" aria-label="Instagram">
+            <a href="https://www.instagram.com/growingkids_official/?__pwa=1" target="_blank" rel="noopener" className="hover:opacity-90" aria-label="Instagram">
               <FaInstagram size={18} />
             </a>
-            <a href="https://youtube.com" target="_blank" rel="noopener" className="hover:opacity-80" aria-label="YouTube">
+            <a href="https://youtube.com" target="_blank" rel="noopener" className="hover:opacity-90" aria-label="YouTube">
               <FaYoutube size={18} />
             </a>
           </div>
@@ -82,31 +85,35 @@ function Navbar() {
         role="navigation"
         aria-label="Primary"
       >
-        <div className="container mx-auto max-w-7xl px-4 py-0.5 flex items-center gap-4">
-
-          {/* Logo only */}
-          <Link to="/" className="flex items-center flex-shrink-0">
+        <div className="container mx-auto max-w-7xl px-4 py-2 flex items-center justify-between gap-4">
+          {/* Brand */}
+          <Link to="/" className="flex items-center gap-3 flex-shrink-0 min-w-0">
             <img
               src={logo}
-              alt="Blossom Preschool logo"
-              className="block h-12 sm:h-16 lg:h-24 w-auto"
+              alt="Growing Kids PreSchool & Daycare logo"
+              className="block h-12 sm:h-16 lg:h-20 w-auto object-contain"
             />
-            <span className="text-2xl font-extrabold text-sky-500">Growing Kids PreSchool</span>
-
-
+            {/* Hide long name on small screens so hamburger fits */}
+            <span
+              className="hidden md:inline text-xl lg:text-2xl font-extrabold leading-tight"
+              style={{ color: LOGO_BLUE }}
+            >
+              GROWING KIDS <span className="text-gray-700">&nbsp;PreSCHOOL &amp; DAYCARE</span>
+            </span>
           </Link>
-          {/* Spacer */}
-          <div className="flex-1" />
 
           {/* Desktop Menu */}
-          <ul className="hidden md:flex items-center gap-8 text-lg">
+          <ul className="hidden md:flex items-center gap-6 lg:gap-8 text-lg">
             {navItems.map((item) => (
               <li key={item.to}>
                 <NavLink
                   to={item.to}
                   className={({ isActive }) =>
-                    `transition hover:opacity-80 ${isActive ? "text-red-500 font-semibold" : ""}`
+                    `transition hover:opacity-90 ${isActive ? "font-semibold" : ""}`
                   }
+                  style={({ isActive }) => ({
+                    color: isActive ? LOGO_BLUE : undefined,
+                  })}
                 >
                   {item.label}
                 </NavLink>
@@ -121,23 +128,16 @@ function Navbar() {
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
             aria-label="Toggle menu"
+            style={{ outlineColor: LOGO_BLUE_DARK }}
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d={menuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
-              />
+            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
         </div>
 
         {/* Mobile Dropdown */}
-        <div
-          id="mobile-menu"
-          className={`md:hidden border-t ${menuOpen ? "block" : "hidden"}`}
-        >
+        <div id="mobile-menu" className={`md:hidden border-t ${menuOpen ? "block" : "hidden"}`}>
           <ul className="bg-white text-center text-gray-800 space-y-4 py-4 font-medium">
             {navItems.map((item) => (
               <li key={item.to}>
@@ -145,8 +145,11 @@ function Navbar() {
                   to={item.to}
                   onClick={() => setMenuOpen(false)}
                   className={({ isActive }) =>
-                    `block py-1 ${isActive ? "text-red-500 font-semibold" : ""}`
+                    `block py-1 transition ${isActive ? "font-semibold" : ""}`
                   }
+                  style={({ isActive }) => ({
+                    color: isActive ? LOGO_BLUE : undefined,
+                  })}
                 >
                   {item.label}
                 </NavLink>
