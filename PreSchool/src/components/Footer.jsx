@@ -1,11 +1,12 @@
-// Footer.jsx — JS + Tailwind, white background version
+// Footer.jsx — white footer + react-icons (logo blue palette)
 import { Link } from "react-router-dom";
+import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 
 export default function Footer() {
   return (
     <footer className="bg-white text-gray-700 border-t border-gray-200">
       <div className="container mx-auto max-w-7xl px-4 py-12 grid gap-8 md:grid-cols-4">
-        {/* Logo + short intro */}
+        {/* Brand + intro */}
         <div>
           <h2 className="text-2xl font-extrabold text-[#0778BE]">
             Growing Kids <span className="text-gray-800">Preschool</span>
@@ -52,27 +53,29 @@ export default function Footer() {
             Stay Connected
           </h3>
           <p className="mt-3 text-sm text-gray-600">
-            Follow us on social media or drop by to know more about our
-            programs.
+            Follow us on social media or drop by to know more about our programs.
           </p>
           <div className="mt-4 flex gap-3">
             <a
-              href="https://www.facebook.com/profile.php?id=61572252436482"
-              className="h-8 w-8 flex items-center justify-center rounded-full bg-[#0778BE] text-white hover:bg-[#055A8F] transition"
+              href="#"
+              aria-label="Facebook"
+              className="h-9 w-9 flex items-center justify-center rounded-full bg-[#0778BE] text-white hover:bg-[#055A8F] transition"
             >
-              F
-            </a>
-            <a
-              href="https://www.instagram.com/growingkids_official/?__pwa=1"
-              className="h-8 w-8 flex items-center justify-center rounded-full bg-[#0778BE] text-white hover:bg-[#055A8F] transition"
-            >
-              I
+              <FaFacebookF size={16} />
             </a>
             <a
               href="#"
-              className="h-8 w-8 flex items-center justify-center rounded-full bg-[#0778BE] text-white hover:bg-[#055A8F] transition"
+              aria-label="Instagram"
+              className="h-9 w-9 flex items-center justify-center rounded-full bg-[#0778BE] text-white hover:bg-[#055A8F] transition"
             >
-              Y
+              <FaInstagram size={16} />
+            </a>
+            <a
+              href="#"
+              aria-label="YouTube"
+              className="h-9 w-9 flex items-center justify-center rounded-full bg-[#0778BE] text-white hover:bg-[#055A8F] transition"
+            >
+              <FaYoutube size={18} />
             </a>
           </div>
         </div>

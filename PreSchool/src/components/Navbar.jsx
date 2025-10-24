@@ -48,7 +48,7 @@ function Navbar() {
             <div className="flex items-center gap-2">
               <FaClock aria-hidden="true" />
               <span>Hours:</span>
-              <span className="font-semibold">7:30–1:00 & 3:00–6:00</span>
+              <span className="font-semibold">7:30am–1:00pm & 3:00–6:00pm</span>
             </div>
 
             <a
@@ -60,7 +60,7 @@ function Navbar() {
               <FaMapMarkerAlt aria-hidden="true" />
               <span>Address:</span>
               <span className="font-semibold truncate">
-                Plot No - A/80 , Sai Dipak Row House Residency, Nr. Vinayak Row House Bhestan - 395023.
+                A/80 , Sai Dipak Row House Residency, Nr. Vinayak Row House Bhestan - 395023.
               </span>
             </a>
           </div>

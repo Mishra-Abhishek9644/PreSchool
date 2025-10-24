@@ -5,7 +5,7 @@ import Herobg from "../assets/Herobg.jpg";
 const LOGO_BLUE = "#0778BE";
 const LOGO_BLUE_DARK = "#055A8F";
 const BLUE_LIGHT = "#A7CDE7";   // light accent
-const BLUE_TINT = "#D7E6F3";    // very light backgrounds
+const BLUE_TINT  = "#D7E6F3";   // very light backgrounds
 
 export default function Hero() {
   return (
@@ -21,7 +21,7 @@ export default function Hero() {
           <p className="text-sm md:text-base font-medium">
             Admissions Open <span className="font-semibold">2025–26</span> · Playgroup · Nursery · Jr KG · Sr KG
           </p>
-          <div className="flex items-center gap-4 text-sm">
+          <div className="flex items-center gap-3 text-sm">
             <Link
               to="/admission"
               className="rounded-full px-4 py-1.5 font-semibold shadow transition"
@@ -29,10 +29,11 @@ export default function Hero() {
             >
               View Admissions
             </Link>
+            {/* CHANGED: from faint underline → solid outlined pill so it's always visible */}
             <Link
               to="/contact"
-              className="underline underline-offset-4"
-              style={{ textDecorationColor: "rgba(255,255,255,0.6)" }}
+               className="rounded-full px-4 py-1.5 font-semibold shadow transition"
+              style={{ backgroundColor: "rgba(255,255,255,0.9)", color: LOGO_BLUE }}
             >
               Contact Us
             </Link>
@@ -110,12 +111,17 @@ export default function Hero() {
               Admissions
             </Link>
 
+            {/* CHANGED: outlined blue so it never disappears on light bg */}
             <Link
               to="/contact"
               className="inline-flex items-center justify-center rounded-2xl px-5 py-3 font-semibold transition"
-              style={{ color: "#374151" }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F3F4F6")}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
+              style={{
+                color: LOGO_BLUE,
+                border: `1px solid ${BLUE_LIGHT}`,
+                backgroundColor: "white",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = BLUE_TINT)}
+              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "white")}
             >
               Contact
             </Link>
@@ -153,12 +159,16 @@ export default function Hero() {
               className="w-full rounded-3xl shadow-2xl object-cover"
             />
             {/* Floating badges */}
-            <div className="absolute -left-3 -top-3 rounded-2xl bg-white shadow px-3 py-2 text-xs font-semibold"
-                 style={{ color: LOGO_BLUE }}>
+            <div
+              className="absolute -left-3 -top-3 rounded-2xl bg-white shadow px-3 py-2 text-xs font-semibold"
+              style={{ color: LOGO_BLUE }}
+            >
               Play • Learn • Grow
             </div>
-            <div className="absolute -right-3 bottom-6 rounded-2xl bg-white shadow px-3 py-2 text-xs font-semibold"
-                 style={{ color: LOGO_BLUE }}>
+            <div
+              className="absolute -right-3 bottom-6 rounded-2xl bg-white shadow px-3 py-2 text-xs font-semibold"
+              style={{ color: LOGO_BLUE }}
+            >
               New Session 2025–26
             </div>
           </div>
