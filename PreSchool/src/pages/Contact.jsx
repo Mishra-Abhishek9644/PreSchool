@@ -88,14 +88,20 @@ export default function Contact() {
             <Card>
               <h3 className="font-semibold text-gray-900">Social</h3>
               <div className="mt-3 flex gap-3">
-                <SocialBtn ariaLabel="Facebook"><FaFacebookF /></SocialBtn>
-                <SocialBtn ariaLabel="Instagram"><FaInstagram /></SocialBtn>
-                <SocialBtn ariaLabel="YouTube"><FaYoutube /></SocialBtn>
+                <SocialBtn ariaLabel="Facebook" href="https://www.facebook.com/profile.php?id=61572252436482">
+                  <FaFacebookF />
+                </SocialBtn>
+                <SocialBtn ariaLabel="Instagram" href="https://www.instagram.com/growingkids_official/?__pwa=1">
+                  <FaInstagram />
+                </SocialBtn>
+                <SocialBtn ariaLabel="YouTube" href="#">
+                  <FaYoutube />
+                </SocialBtn>
               </div>
             </Card>
           </div>
 
-          {/* Right: Simple Enquiry Form (UI only) */}
+          {/* Right: Enquiry Form */}
           <div className="rounded-2xl border bg-white p-6 shadow-sm" style={{ borderColor: BLUE_TINT }}>
             <h2 className="text-xl font-bold text-gray-900">Send us a message</h2>
             <p className="text-sm text-gray-600 mt-1">We’ll get back to you soon.</p>
@@ -123,7 +129,7 @@ export default function Contact() {
                 style={{ backgroundColor: LOGO_BLUE }}
                 onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = LOGO_BLUE_DARK)}
                 onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = LOGO_BLUE)}
-                onClick={(e) => e.preventDefault()} // remove when wiring to backend
+                onClick={(e) => e.preventDefault()}
               >
                 Send Message
               </button>
@@ -135,18 +141,18 @@ export default function Contact() {
         </div>
 
         {/* Map */}
-<div className="mt-12 rounded-2xl overflow-hidden border" style={{ borderColor: BLUE_TINT }}>
-  <iframe
-    title="Growing Kids Preschool Location"
-    width="100%"
-    height="360"
-    style={{ border: 0 }}
-    loading="lazy"
-    allowFullScreen
-    referrerPolicy="no-referrer-when-downgrade"
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.7240306000153!2d72.83378227503417!3d21.123565780549615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be0515da0a79679%3A0xbfedb29ede360f97!2sGrowing%20Kids%20Pre-Primary%20School%20%26%20Day%20Care!5e0!3m2!1sen!2sin!4v1761294250079!5m2!1sen!2sin"
-  />
-</div>
+        <div className="mt-12 rounded-2xl overflow-hidden border" style={{ borderColor: BLUE_TINT }}>
+          <iframe
+            title="Growing Kids Preschool Location"
+            width="100%"
+            height="360"
+            style={{ border: 0 }}
+            loading="lazy"
+            allowFullScreen
+            referrerPolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.7240306000153!2d72.83378227503417!3d21.123565780549615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be0515da0a79679%3A0xbfedb29ede360f97!2sGrowing%20Kids%20Pre-Primary%20School%20%26%20Day%20Care!5e0!3m2!1sen!2sin!4v1761294250079!5m2!1sen!2sin"
+          />
+        </div>
       </div>
     </section>
   );
@@ -172,10 +178,12 @@ function IconBox({ children }) {
   );
 }
 
-function SocialBtn({ children, ariaLabel }) {
+function SocialBtn({ children, ariaLabel, href }) {
   return (
     <a
-      href="#"
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
       aria-label={ariaLabel}
       className="h-9 w-9 rounded-full flex items-center justify-center border transition hover:opacity-90"
       style={{ borderColor: BLUE_TINT, color: LOGO_BLUE }}

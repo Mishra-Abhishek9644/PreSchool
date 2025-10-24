@@ -1,5 +1,6 @@
 // About.jsx — standalone page (logo-blue palette, founder + corporate contact)
 import { Link } from "react-router-dom";
+import teaching from "../assets/teaching methods.jpg";
 
 const LOGO_BLUE = "#0778BE";
 const BLUE_TINT = "#D7E6F3";
@@ -9,7 +10,6 @@ export default function About() {
   return (
     <section className="relative bg-white">
       <div className="container mx-auto max-w-7xl px-4 py-12 md:py-16">
-
         {/* Intro */}
         <div className="text-center max-w-3xl mx-auto">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900">
@@ -98,11 +98,13 @@ export default function About() {
               <li>Gentle routines to build focus and self-care habits</li>
             </ul>
           </div>
-          <div
-            className="h-60 rounded-2xl shadow bg-[url('/assets/classroom.jpg')] bg-cover bg-center border"
-            style={{ borderColor: BLUE_TINT }}
-            aria-hidden
-          />
+          <div className="h-60 rounded-2xl shadow border overflow-hidden" style={{ borderColor: BLUE_TINT }}>
+            <img
+              src={teaching}
+              alt="Teacher guiding preschool children"
+              className="w-full h-full object-cover"
+            />
+          </div>
         </div>
 
         {/* Branches */}
@@ -121,7 +123,7 @@ export default function About() {
             </div>
             <div className="rounded-xl border p-6 shadow-sm text-left" style={{ borderColor: BLUE_TINT }}>
               <h3 className="font-semibold text-gray-900">[Second Branch Name]</h3>
-              <p className="text-sm text-gray-600 mt-2">Add full address here when ready.</p>
+              <p className="text-sm text-gray-600 mt-2">Gali no 4, Sai Mohan 4, Plot No-357, near police chowki, Bhestan, Surat, Gujarat 395023</p>
               <p className="text-sm text-gray-600 mt-1">Hours: 7:30am – 1:00pm & 3:00pm – 6:00pm</p>
             </div>
           </div>

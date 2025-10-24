@@ -11,7 +11,7 @@ import {
 import logo from "../assets/logo_trimmed.svg";
 
 const LOGO_BLUE = "#0778BE";
-const LOGO_BLUE_DARK = "#055A8F";   // darker shade for hover/focus rings
+const LOGO_BLUE_DARK = "#055A8F";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -35,8 +35,8 @@ function Navbar() {
         Skip to content
       </a>
 
-      {/* Top Bar (hidden on mobile) */}
-      <div className="hidden md:block" style={{ backgroundColor: LOGO_BLUE }}>
+      {/* Top Bar — desktop only */}
+      <div className="hidden lg:block" style={{ backgroundColor: LOGO_BLUE }}>
         <div className="container mx-auto max-w-7xl px-4 flex justify-between items-center p-2 md:p-3 text-white text-xs md:text-sm">
           <div className="flex items-center gap-6 flex-nowrap">
             <a href="tel:+919820638066" className="flex items-center gap-2 hover:underline">
@@ -55,7 +55,7 @@ function Navbar() {
               href="https://maps.google.com/?q=Plot%20No%20-%20A/80%20,%20Sai%20Dipak%20Row%20House%20Residency,%20Nr.%20Vinayak%20Row%20House%20Bhestan%20-%20395023."
               target="_blank"
               rel="noopener"
-              className="flex items-center gap-2 hover:underline"
+              className="flex items-center gap-2 hover:underline min-w-0"
             >
               <FaMapMarkerAlt aria-hidden="true" />
               <span>Address:</span>
@@ -91,19 +91,19 @@ function Navbar() {
             <img
               src={logo}
               alt="Growing Kids PreSchool & Daycare logo"
-              className="block h-12 sm:h-16 lg:h-20 w-auto object-contain"
+              className="block h-10 sm:h-12 lg:h-20 w-auto object-contain"
             />
-            {/* Hide long name on small screens so hamburger fits */}
+            {/* Show long name only on desktop */}
             <span
-              className="hidden md:inline text-xl lg:text-2xl font-extrabold leading-tight"
+              className="hidden lg:inline text-2xl font-extrabold leading-tight"
               style={{ color: LOGO_BLUE }}
             >
-              GROWING KIDS <span className="text-gray-700">&nbsp;PreSCHOOL &amp; DAYCARE</span>
+              GROWING KIDS <span className="text-gray-700">&nbsp;PRESCHOOL &amp; DAYCARE</span>
             </span>
           </Link>
 
-          {/* Desktop Menu */}
-          <ul className="hidden md:flex items-center gap-6 lg:gap-8 text-lg">
+          {/* Desktop Menu — desktop only */}
+          <ul className="hidden lg:flex items-center gap-8 text-lg">
             {navItems.map((item) => (
               <li key={item.to}>
                 <NavLink
@@ -121,9 +121,9 @@ function Navbar() {
             ))}
           </ul>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile/Tablet Menu Button — visible up to lg */}
           <button
-            className="md:hidden inline-flex items-center justify-center rounded-lg p-2 ring-1 ring-gray-300 hover:ring-gray-400 focus:outline-none focus-visible:ring-2"
+            className="lg:hidden inline-flex items-center justify-center rounded-lg p-2 ring-1 ring-gray-300 hover:ring-gray-400 focus:outline-none focus-visible:ring-2"
             onClick={() => setMenuOpen((v) => !v)}
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
@@ -131,13 +131,13 @@ function Navbar() {
             style={{ outlineColor: LOGO_BLUE_DARK }}
           >
             <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={menuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
             </svg>
           </button>
         </div>
 
-        {/* Mobile Dropdown */}
-        <div id="mobile-menu" className={`md:hidden border-t ${menuOpen ? "block" : "hidden"}`}>
+        {/* Mobile/Tablet Dropdown — visible up to lg */}
+        <div id="mobile-menu" className={`lg:hidden border-t ${menuOpen ? "block" : "hidden"}`}>
           <ul className="bg-white text-center text-gray-800 space-y-4 py-4 font-medium">
             {navItems.map((item) => (
               <li key={item.to}>

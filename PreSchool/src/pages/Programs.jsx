@@ -1,5 +1,11 @@
 // Programs.jsx — detailed brochure-style page (big headings + daycare spotlight + static images)
 import { Link } from "react-router-dom";
+import nursery from "../assets/nursery.jpg"
+import Junior from "../assets/juniore.jpg"
+import senior from "../assets/senior.jpg"
+import Daycare from "../assets/Daycare.jpg"
+import play  from "../assets/playgroup.avif"
+
 
 const LOGO_BLUE = "#0778BE";
 const LOGO_BLUE_DARK = "#055A8F";
@@ -25,7 +31,7 @@ export default function Programs() {
         <ProgramSection
           title="Playgroup"
           age="2 – 3 years"
-          image="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=1200&q=80"
+          image={play}
           bullets={[
             "Gentle separation support with comforting routines.",
             "Sensory play, songs, movement and pretend-play.",
@@ -38,7 +44,7 @@ export default function Programs() {
         <ProgramSection
           title="Nursery"
           age="3 – 4 years"
-          image="https://images.unsplash.com/photo-1596464716121-f6c1debb10fb?auto=format&fit=crop&w=1200&q=80"
+          image={nursery}
           bullets={[
             "Language development through stories, rhymes and conversation.",
             "Pre-math with sorting, matching, counting and patterns.",
@@ -51,7 +57,7 @@ export default function Programs() {
         <ProgramSection
           title="Junior KG"
           age="4 – 5 years"
-          image="https://images.unsplash.com/photo-1558021212-51b6ecfa0db9?auto=format&fit=crop&w=1200&q=80"
+          image={Junior}
           bullets={[
             "Phonics and listening games for sound awareness.",
             "Hands-on numeracy: quantities, shapes, basic operations.",
@@ -64,7 +70,7 @@ export default function Programs() {
         <ProgramSection
           title="Senior KG"
           age="5 – 6 years"
-          image="https://images.unsplash.com/photo-1600880292089-90e24c5a13b1?auto=format&fit=crop&w=1200&q=80"
+          image={senior}
           bullets={[
             "Pre-writing and early reading readiness with phonics.",
             "Problem-solving, story sequencing, show-and-tell.",
@@ -104,7 +110,7 @@ export default function Programs() {
             </div>
             <div className="shrink-0">
               <img
-                src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?auto=format&fit=crop&w=1200&q=80"
+                 src={Daycare}
                 alt="Children in daycare environment"
                 className="rounded-2xl shadow-md object-cover h-40 w-72 md:h-44 md:w-80"
               />

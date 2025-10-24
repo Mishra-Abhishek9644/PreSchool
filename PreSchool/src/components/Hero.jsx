@@ -5,41 +5,35 @@ import Herobg from "../assets/Herobg.jpg";
 const LOGO_BLUE = "#0778BE";
 const LOGO_BLUE_DARK = "#055A8F";
 const BLUE_LIGHT = "#A7CDE7";   // light accent
-const BLUE_TINT  = "#D7E6F3";   // very light backgrounds
+const BLUE_TINT = "#D7E6F3";   // very light backgrounds
 
 export default function Hero() {
   return (
     <section className="relative overflow-hidden">
       {/* Top promo bar */}
-      <div
-        className="text-white"
-        style={{
-          backgroundImage: `linear-gradient(to right, ${LOGO_BLUE}, ${BLUE_LIGHT})`,
-        }}
+<div className="text-white bg-[#055A8F] lg:bg-gradient-to-r lg:from-[#0778BE] lg:to-[#A7CDE7]">
+    <div className="container mx-auto max-w-7xl px-4 py-2 flex flex-col md:flex-row items-center justify-between gap-2">
+    <p className="text-sm md:text-base font-medium">
+      Admissions Open <span className="font-semibold">2025–26</span> · Playgroup · Nursery · Jr KG · Sr KG
+    </p>
+
+    <div className="flex items-center gap-3 text-sm">
+      <Link
+        to="/admission"
+        className="rounded-full bg-white px-4 py-1.5 font-semibold text-[#055A8F] shadow hover:bg-gray-100 transition"
       >
-        <div className="container mx-auto max-w-7xl px-4 py-2 flex flex-col md:flex-row items-center justify-between gap-2">
-          <p className="text-sm md:text-base font-medium">
-            Admissions Open <span className="font-semibold">2025–26</span> · Playgroup · Nursery · Jr KG · Sr KG
-          </p>
-          <div className="flex items-center gap-3 text-sm">
-            <Link
-              to="/admission"
-              className="rounded-full px-4 py-1.5 font-semibold shadow transition"
-              style={{ backgroundColor: "rgba(255,255,255,0.9)", color: LOGO_BLUE }}
-            >
-              View Admissions
-            </Link>
-            {/* CHANGED: from faint underline → solid outlined pill so it's always visible */}
-            <Link
-              to="/contact"
-               className="rounded-full px-4 py-1.5 font-semibold shadow transition"
-              style={{ backgroundColor: "rgba(255,255,255,0.9)", color: LOGO_BLUE }}
-            >
-              Contact Us
-            </Link>
-          </div>
-        </div>
-      </div>
+        View Admissions
+      </Link>
+      <Link
+        to="/contact"
+        className="rounded-full border border-white px-4 py-1.5 font-semibold text-white hover:bg-white/10 transition"
+      >
+        Contact Us
+      </Link>
+    </div>
+  </div>
+</div>
+
 
       {/* Soft background accents (blue-tinted) */}
       <div
