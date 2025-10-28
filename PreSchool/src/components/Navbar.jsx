@@ -95,10 +95,12 @@ function Navbar() {
             />
             {/* Show long name only on desktop */}
             <span
-              className="hidden lg:inline text-2xl font-extrabold leading-tight"
+              className="text-sm sm:text-base md:text-lg lg:text-2xl font-extrabold leading-tight"
               style={{ color: LOGO_BLUE }}
             >
-              GROWING KIDS <span className="text-gray-700">&nbsp;PRESCHOOL &amp; DAYCARE</span>
+              GROWING KIDS <span className="text-gray-700">PRESCHOOL</span>
+              {/* Show "& DAYCARE" only on medium screens and larger */}
+              <span className="hidden md:inline text-gray-700">&nbsp;& DAYCARE</span>
             </span>
           </Link>
 

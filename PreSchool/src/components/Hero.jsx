@@ -11,8 +11,8 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden">
       {/* Top promo bar */}
-<div className="text-white bg-[#055A8F] lg:bg-gradient-to-r lg:from-[#0778BE] lg:to-[#A7CDE7]">
-    <div className="container mx-auto max-w-7xl px-4 py-2 flex flex-col md:flex-row items-center justify-between gap-2">
+<div className="text-white bg-[#0778BE]">
+  <div className="container mx-auto max-w-7xl px-4 py-2 flex flex-col md:flex-row items-center justify-between gap-2">
     <p className="text-sm md:text-base font-medium">
       Admissions Open <span className="font-semibold">2025–26</span> · Playgroup · Nursery · Jr KG · Sr KG
     </p>
@@ -20,13 +20,13 @@ export default function Hero() {
     <div className="flex items-center gap-3 text-sm">
       <Link
         to="/admission"
-        className="rounded-full bg-white px-4 py-1.5 font-semibold text-[#055A8F] shadow hover:bg-gray-100 transition"
+        className="rounded-full bg-white px-4 py-1.5 font-semibold text-[#0778BE] shadow hover:bg-gray-100 transition"
       >
         View Admissions
       </Link>
       <Link
         to="/contact"
-        className="rounded-full border border-white px-4 py-1.5 font-semibold text-white hover:bg-white/10 transition"
+        className="rounded-full bg-white px-4 py-1.5 font-semibold text-[#0778BE] shadow hover:bg-gray-100 transition"
       >
         Contact Us
       </Link>
@@ -34,9 +34,8 @@ export default function Hero() {
   </div>
 </div>
 
-
       {/* Soft background accents (blue-tinted) */}
-      <div
+      {/* <div
         aria-hidden
         className="pointer-events-none absolute -top-24 -right-20 h-80 w-80 rounded-full blur-3xl"
         style={{ backgroundColor: BLUE_TINT }}
@@ -45,7 +44,7 @@ export default function Hero() {
         aria-hidden
         className="pointer-events-none absolute -bottom-24 -left-20 h-80 w-80 rounded-full blur-3xl"
         style={{ backgroundColor: BLUE_TINT }}
-      />
+      /> */}
 
       <div className="relative container mx-auto max-w-7xl px-4 py-12 md:py-16 grid md:grid-cols-2 items-center gap-10">
         {/* Left: Text */}

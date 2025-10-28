@@ -88,107 +88,66 @@ export default function Admission() {
           </div>
         </div>
 
-        {/* Admission Enquiry Form */}
-        <div className="mt-16">
-          <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 text-center">
-            Admission Enquiry Form
-          </h2>
-          <p className="mt-3 text-gray-600 text-center">
-            Fill in your details and we’ll get back to you soon.
-          </p>
+          {/* Admission Enquiry Form */}
+<div className="mt-16">
+  <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 text-center">
+    Admission Enquiry Form
+  </h2>
+  <p className="mt-3 text-gray-600 text-center">
+    Fill in your details and we’ll get back to you soon.
+  </p>
 
-          <form className="mt-8 max-w-2xl mx-auto grid gap-6">
-            <div className="grid md:grid-cols-2 gap-4">
-              <input
-                type="text"
-                placeholder="Child's Name"
-                className="w-full rounded-xl border px-4 py-3 text-sm"
-                style={{ borderColor: BLUE_TINT }}
-              />
-              <input
-                type="number"
-                placeholder="Child's Age"
-                className="w-full rounded-xl border px-4 py-3 text-sm"
-                style={{ borderColor: BLUE_TINT }}
-              />
-            </div>
-            <div className="grid md:grid-cols-2 gap-4">
-              <input
-                type="text"
-                placeholder="Parent's Name"
-                className="w-full rounded-xl border px-4 py-3 text-sm"
-                style={{ borderColor: BLUE_TINT }}
-              />
-              <input
-                type="tel"
-                placeholder="Phone Number"
-                className="w-full rounded-xl border px-4 py-3 text-sm"
-                style={{ borderColor: BLUE_TINT }}
-              />
-            </div>
-            <input
-              type="email"
-              placeholder="Email Address"
-              className="w-full rounded-xl border px-4 py-3 text-sm"
-              style={{ borderColor: BLUE_TINT }}
-            />
-            <select
-              className="w-full rounded-xl border px-4 py-3 text-sm text-gray-600"
-              style={{ borderColor: BLUE_TINT }}
-            >
-              <option>Select Program</option>
-              <option>Playgroup</option>
-              <option>Nursery</option>
-              <option>Junior KG</option>
-              <option>Senior KG</option>
-              <option>Daycare</option>
-            </select>
-            <textarea
-              rows="4"
-              placeholder="Any notes or questions?"
-              className="w-full rounded-xl border px-4 py-3 text-sm"
-              style={{ borderColor: BLUE_TINT }}
-            ></textarea>
+  <div className="mt-8 max-w-3xl mx-auto">
+    <iframe
+      src="https://docs.google.com/forms/d/e/1FAIpQLSdQD7IsOSXY-w9mQ7G6lcZnOZ_AIhlvqR81TcorHisEOU2WCA/viewform?embedded=true"
+      width="100%"
+      height="1200"
+      title="Admission Form"
+      className="rounded-xl border"
+      style={{ borderColor: BLUE_TINT }}
+    >
+      Loading…
+    </iframe>
+  </div>
+</div>
 
-            <button
-              type="submit"
-              className="w-full rounded-xl px-5 py-3 font-semibold text-white shadow"
-              style={{ backgroundColor: LOGO_BLUE }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = LOGO_BLUE_DARK)}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = LOGO_BLUE)}
-            >
-              Submit Enquiry
-            </button>
-          </form>
+{/* Final CTA */}
+<div
+  className="mt-16 flex flex-col md:flex-row items-center justify-between gap-4 rounded-2xl border p-6 text-center md:text-left shadow-sm"
+  style={{ borderColor: BLUE_TINT, backgroundColor: "#F9FBFD" }}
+>
+  <p className="text-gray-700">
+    Need help with the admission process? We’re happy to guide you.
+  </p>
+  <div className="flex flex-col sm:flex-row gap-3">
+    <Link
+      to="/contact"
+      className="rounded-xl px-5 py-2.5 font-semibold text-white shadow"
+      style={{ backgroundColor: LOGO_BLUE }}
+      onMouseEnter={(e) =>
+        (e.currentTarget.style.backgroundColor = LOGO_BLUE_DARK)
+      }
+      onMouseLeave={(e) =>
+        (e.currentTarget.style.backgroundColor = LOGO_BLUE)
+      }
+    >
+      Contact Office
+    </Link>
+    <Link
+      to="/programs"
+      className="rounded-xl px-5 py-2.5 font-semibold"
+      style={{
+        border: `1px solid ${BLUE_LIGHT}`,
+        color: LOGO_BLUE,
+        backgroundColor: "white",
+      }}
+    >
+      View Programs
+    </Link>
+  </div>
+</div>
+
         </div>
-
-        {/* Final CTA */}
-        <div
-          className="mt-16 flex flex-col md:flex-row items-center justify-between gap-4 rounded-2xl border p-6 text-center md:text-left shadow-sm"
-          style={{ borderColor: BLUE_TINT, backgroundColor: "#F9FBFD" }}
-        >
-          <p className="text-gray-700">Need help with the admission process? We’re happy to guide you.</p>
-          <div className="flex flex-col sm:flex-row gap-3">
-            <Link
-              to="/contact"
-              className="rounded-xl px-5 py-2.5 font-semibold text-white shadow"
-              style={{ backgroundColor: LOGO_BLUE }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = LOGO_BLUE_DARK)}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = LOGO_BLUE)}
-            >
-              Contact Office
-            </Link>
-            <Link
-              to="/programs"
-              className="rounded-xl px-5 py-2.5 font-semibold"
-              style={{ border: `1px solid ${BLUE_LIGHT}`, color: LOGO_BLUE, backgroundColor: "white" }}
-            >
-              View Programs
-            </Link>
-          </div>
-        </div>
-
-      </div>
     </section>
   );
 }
