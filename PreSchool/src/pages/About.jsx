@@ -1,7 +1,7 @@
 // About.jsx — standalone page (logo-blue palette, founder + corporate contact)
 import { Link } from "react-router-dom";
 import teaching from "../assets/teaching methods.jpg";
-import principal from "../assets/principal.png"
+import principal from "../assets/principal.png";
 
 const LOGO_BLUE = "#0778BE";
 const BLUE_TINT = "#D7E6F3";
@@ -26,20 +26,27 @@ export default function About() {
         {/* Founder */}
         <div className="mt-16 grid md:grid-cols-3 gap-8 items-start">
           <div className="md:col-span-1">
+            {/* Taller principal image */}
             <div
-              className="h-44 w-full rounded-2xl shadow bg-gradient-to-br from-white to-[#ECF5FB] border"
+              className="h-120 w-full rounded-2xl shadow border overflow-hidden"
               style={{ borderColor: BLUE_TINT }}
-              aria-hidden
-            />
+            >
+              <img
+                src={principal}
+                alt="Principal - Growing Kids Preschool"
+                className="w-full h-full object-cover object-top"
+              />
+            </div>
           </div>
+
           <div className="md:col-span-2">
             <h2 className="text-2xl font-bold text-gray-900 mb-2">Our Founder & Principal </h2>
             <p className="text-gray-600 leading-relaxed">
-              With an illustrious career spanning over 42 years, Mrs. Suman Aggarwal stands as a beacon of dedication and excellence in education. Her journey—from a passionate teacher to an inspiring principal—reflects her unwavering commitment to nurturing young minds and empowering educators.  
-
-Guided by her deep understanding of the needs of children, parents, and teachers, Mrs. Aggarwal founded Growing Kids School in 2024 with a vision to create a learning environment that combines academic brilliance with compassion and moral growth. Every corner of the school reflects her belief that education should not only enlighten the mind but also touch the heart.  
-
-Her decades of experience have shaped Growing Kids School into more than just an institution—it is a second home where curiosity is encouraged, individuality is celebrated, and values are instilled with care. Under her guidance, the school continues to uphold its mission of helping every child grow into a confident, responsible, and compassionate individual.
+              With an illustrious career spanning over 42 years, Mrs. Suman Aggarwal stands as a beacon of dedication and excellence in education. Her journey—from a passionate teacher to an inspiring principal—reflects her unwavering commitment to nurturing young minds and empowering educators.
+              <br /><br />
+              Guided by her deep understanding of the needs of children, parents, and teachers, Mrs. Aggarwal founded Growing Kids School in 2024 with a vision to create a learning environment that combines academic brilliance with compassion and moral growth. Every corner of the school reflects her belief that education should not only enlighten the mind but also touch the heart.
+              <br /><br />
+              Her decades of experience have shaped Growing Kids School into more than just an institution—it is a second home where curiosity is encouraged, individuality is celebrated, and values are instilled with care. Under her guidance, the school continues to uphold its mission of helping every child grow into a confident, responsible, and compassionate individual.
             </p>
             <ul className="mt-4 grid sm:grid-cols-2 gap-3 text-sm">
               <li className="rounded-xl p-3 border" style={{ borderColor: BLUE_TINT }}>

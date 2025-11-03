@@ -1,10 +1,15 @@
-// Contact.jsx — contact info + enquiry form + map (UI only)
+// Contact.jsx — contact info + embedded Google Form + map (UI only)
 import { FaPhoneAlt, FaMapMarkerAlt, FaClock, FaEnvelope, FaWhatsapp, FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 
 const LOGO_BLUE = "#0778BE";
 const LOGO_BLUE_DARK = "#055A8F";
 const BLUE_LIGHT = "#A7CDE7";
 const BLUE_TINT  = "#D7E6F3";
+
+// Your Google Form (embedded)
+const CONTACT_FORM_EMBED = "https://docs.google.com/forms/d/e/1FAIpQLSfkMCvACO5o9TPhJmajztCp7iryFXyv5s5YVOZAqhtAVYF1NQ/viewform?embedded=true";
+// Non-embedded URL (for fallback/new-tab)
+const CONTACT_FORM_URL = CONTACT_FORM_EMBED.replace("?embedded=true", "");
 
 export default function Contact() {
   return (
@@ -20,7 +25,7 @@ export default function Contact() {
           </p>
         </div>
 
-        {/* Info + Form */}
+        {/* Info + Form (grid) */}
         <div className="mt-12 grid lg:grid-cols-2 gap-8">
           {/* Left: Contact Info */}
           <div className="space-y-6">
@@ -101,42 +106,38 @@ export default function Contact() {
             </Card>
           </div>
 
-          {/* Right: Enquiry Form */}
-          <div className="rounded-2xl border bg-white p-6 shadow-sm" style={{ borderColor: BLUE_TINT }}>
-            <h2 className="text-xl font-bold text-gray-900">Send us a message</h2>
-            <p className="text-sm text-gray-600 mt-1">We’ll get back to you soon.</p>
+          {/* Right: Embedded Google Form */}
+          <div>
+            <div className="rounded-2xl border bg-white p-0 shadow-sm overflow-hidden" style={{ borderColor: BLUE_TINT }}>
+              <div className="p-6">
+                <h2 className="text-xl font-bold text-gray-900">Send us a message</h2>
+                <p className="text-sm text-gray-600 mt-1">Use the form below — we’ll get back to you soon.</p>
+              </div>
 
-            <form className="mt-6 grid gap-4">
-              <div className="grid md:grid-cols-2 gap-4">
-                <Input placeholder="Parent's Name" />
-                <Input type="tel" placeholder="Phone Number" />
+              {/* Embed iframe — responsive heights for devices */}
+              <div className="w-full">
+                <iframe
+                  title="Growing Kids Contact Form"
+                  src={CONTACT_FORM_EMBED}
+                  loading="lazy"
+                  className="w-full h-[650px] sm:h-[800px] md:h-[950px] lg:h-[1000px] border-0"
+                  aria-label="Contact form"
+                />
               </div>
-              <div className="grid md:grid-cols-2 gap-4">
-                <Input type="email" placeholder="Email Address" />
-                <Select>
-                  <option>Select Program</option>
-                  <option>Playgroup</option>
-                  <option>Nursery</option>
-                  <option>Junior KG</option>
-                  <option>Senior KG</option>
-                  <option>Daycare</option>
-                </Select>
+
+              {/* Fallback CTA */}
+              <div className="p-6 text-center">
+                <p className="text-sm text-gray-600 mb-3">If the form doesn't load for you, open it in a new tab:</p>
+                <a
+                  href={CONTACT_FORM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block rounded-xl bg-[#0778BE] px-6 py-3 text-white font-semibold shadow hover:bg-[#055A8F] transition"
+                >
+                  Open Contact Form
+                </a>
               </div>
-              <Textarea rows="4" placeholder="Your message" />
-              <button
-                type="submit"
-                className="w-full rounded-xl px-5 py-3 font-semibold text-white shadow transition"
-                style={{ backgroundColor: LOGO_BLUE }}
-                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = LOGO_BLUE_DARK)}
-                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = LOGO_BLUE)}
-                onClick={(e) => e.preventDefault()}
-              >
-                Send Message
-              </button>
-              <p className="text-xs text-gray-500 text-center">
-                This is a demo form. Connect to Formspree / Google Forms to receive submissions.
-              </p>
-            </form>
+            </div>
           </div>
         </div>
 
@@ -190,35 +191,5 @@ function SocialBtn({ children, ariaLabel, href }) {
     >
       {children}
     </a>
-  );
-}
-
-function Input(props) {
-  return (
-    <input
-      {...props}
-      className="w-full rounded-xl border px-4 py-3 text-sm outline-none focus:ring-2"
-      style={{ borderColor: BLUE_TINT, boxShadow: "none" }}
-    />
-  );
-}
-
-function Select(props) {
-  return (
-    <select
-      {...props}
-      className="w-full rounded-xl border px-4 py-3 text-sm text-gray-600 outline-none focus:ring-2"
-      style={{ borderColor: BLUE_TINT }}
-    />
-  );
-}
-
-function Textarea(props) {
-  return (
-    <textarea
-      {...props}
-      className="w-full rounded-xl border px-4 py-3 text-sm outline-none focus:ring-2"
-      style={{ borderColor: BLUE_TINT }}
-    />
   );
 }

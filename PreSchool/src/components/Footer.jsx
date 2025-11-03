@@ -1,11 +1,10 @@
-// Footer.jsx — white footer + react-icons (logo blue palette)
 import { Link } from "react-router-dom";
 import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 
 export default function Footer() {
   return (
     <footer className="bg-white text-gray-700 border-t border-gray-200">
-      <div className="container mx-auto max-w-7xl px-4 py-12 grid gap-8 md:grid-cols-4">
+      <div className="container mx-auto max-w-7xl px-4 py-12 grid gap-8 md:grid-cols-5">
         {/* Brand + intro */}
         <div>
           <h2 className="text-2xl font-extrabold text-[#0778BE]">
@@ -29,6 +28,20 @@ export default function Footer() {
             <li><Link to="/admission" className="hover:text-[#0778BE]">Admissions</Link></li>
             <li><Link to="/gallery" className="hover:text-[#0778BE]">Gallery</Link></li>
             <li><Link to="/contact" className="hover:text-[#0778BE]">Contact</Link></li>
+          </ul>
+        </div>
+
+        {/* Our Branches — new div inserted here */}
+        <div>
+          <h3 className="text-sm font-semibold uppercase tracking-wide text-[#0778BE]">
+            Our Branches
+          </h3>
+          <ul className="mt-3 space-y-2 text-sm text-gray-600">
+            <li>Gali no 4, Sai Mohan 4, Plot No-357, near police chowki, Bhestan, Surat, Gujarat 395023
+              Hours: 7:30am – 1:00pm & 3:00pm – 6:00pm </li>
+            <li>Plot No - A/80 , Sai Dipak Row House Residency, Nr. Vinayak Row House Bhestan - 395023.
+              Hours: 7:30am – 1:00pm & 3:00pm – 6:00pm</li>
+      
           </ul>
         </div>
 

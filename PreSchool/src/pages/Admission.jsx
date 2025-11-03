@@ -6,6 +6,13 @@ const LOGO_BLUE_DARK = "#055A8F";
 const BLUE_LIGHT = "#A7CDE7";
 const BLUE_TINT = "#D7E6F3";
 
+// Replace with your Admission Google Form embed URL (embedded=true)
+const ADMISSION_EMBED_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLSdQD7IsOSXY-w9mQ7G6lcZnOZ_AIhlvqR81TcorHisEOU2WCA/viewform?embedded=true";
+
+// If you want a separate Contact form, put its embed URL here and swap below
+// const CONTACT_EMBED_URL = "https://docs.google.com/forms/d/e/YOUR_CONTACT_FORM_ID/viewform?embedded=true";
+
 export default function Admission() {
   return (
     <section className="relative bg-white">
@@ -88,66 +95,78 @@ export default function Admission() {
           </div>
         </div>
 
-          {/* Admission Enquiry Form */}
-<div className="mt-16">
-  <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 text-center">
-    Admission Enquiry Form
-  </h2>
-  <p className="mt-3 text-gray-600 text-center">
-    Fill in your details and we’ll get back to you soon.
-  </p>
+        {/* Admission Enquiry Form (embedded) */}
+        <div className="mt-16">
+          <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 text-center">
+            Admission Enquiry Form
+          </h2>
+          <p className="mt-3 text-gray-600 text-center">
+            Fill in your details and we’ll get back to you soon.
+          </p>
 
-  <div className="mt-8 max-w-3xl mx-auto">
-    <iframe
-      src="https://docs.google.com/forms/d/e/1FAIpQLSdQD7IsOSXY-w9mQ7G6lcZnOZ_AIhlvqR81TcorHisEOU2WCA/viewform?embedded=true"
-      width="100%"
-      height="1200"
-      title="Admission Form"
-      className="rounded-xl border"
-      style={{ borderColor: BLUE_TINT }}
-    >
-      Loading…
-    </iframe>
-  </div>
-</div>
+          <div className="mt-8 max-w-3xl mx-auto">
+            {/* Responsive container: small height on mobile, taller on desktop */}
+            <div className="w-full rounded-xl border overflow-hidden" style={{ borderColor: BLUE_TINT }}>
+              {/* NOTE: if Google Forms is slow for some visitors, the fallback button opens form in a new tab */}
+              <iframe
+                loading="lazy"
+                src={ADMISSION_EMBED_URL}
+                className="w-full h-[700px] sm:h-[900px] md:h-[1100px] lg:h-[1200px] border-0"
+                title="Admission Form"
+                aria-label="Admission Form"
+              />
+            </div>
 
-{/* Final CTA */}
-<div
-  className="mt-16 flex flex-col md:flex-row items-center justify-between gap-4 rounded-2xl border p-6 text-center md:text-left shadow-sm"
-  style={{ borderColor: BLUE_TINT, backgroundColor: "#F9FBFD" }}
->
-  <p className="text-gray-700">
-    Need help with the admission process? We’re happy to guide you.
-  </p>
-  <div className="flex flex-col sm:flex-row gap-3">
-    <Link
-      to="/contact"
-      className="rounded-xl px-5 py-2.5 font-semibold text-white shadow"
-      style={{ backgroundColor: LOGO_BLUE }}
-      onMouseEnter={(e) =>
-        (e.currentTarget.style.backgroundColor = LOGO_BLUE_DARK)
-      }
-      onMouseLeave={(e) =>
-        (e.currentTarget.style.backgroundColor = LOGO_BLUE)
-      }
-    >
-      Contact Office
-    </Link>
-    <Link
-      to="/programs"
-      className="rounded-xl px-5 py-2.5 font-semibold"
-      style={{
-        border: `1px solid ${BLUE_LIGHT}`,
-        color: LOGO_BLUE,
-        backgroundColor: "white",
-      }}
-    >
-      View Programs
-    </Link>
-  </div>
-</div>
-
+            {/* Fallback CTA if embed fails or loads slowly */}
+            <div className="mt-4 text-center">
+              <p className="text-sm text-gray-600 mb-2">Having trouble with the embedded form?</p>
+              <a
+                href={ADMISSION_EMBED_URL.replace("?embedded=true", "")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block rounded-xl bg-[#0778BE] px-6 py-3 text-white font-semibold shadow hover:bg-[#055A8F] transition"
+              >
+                Open Admission Form in new tab
+              </a>
+            </div>
+          </div>
         </div>
+
+        {/* Final CTA */}
+        <div
+          className="mt-16 flex flex-col md:flex-row items-center justify-between gap-4 rounded-2xl border p-6 text-center md:text-left shadow-sm"
+          style={{ borderColor: BLUE_TINT, backgroundColor: "#F9FBFD" }}
+        >
+          <p className="text-gray-700">Need help with the admission process? We’re happy to guide you.</p>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <Link
+              to="/contact"
+              className="rounded-xl px-5 py-2.5 font-semibold text-white shadow"
+              style={{ backgroundColor: LOGO_BLUE }}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.backgroundColor = LOGO_BLUE_DARK)
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.backgroundColor = LOGO_BLUE)
+              }
+            >
+              Contact Office
+            </Link>
+            <Link
+              to="/programs"
+              className="rounded-xl px-5 py-2.5 font-semibold"
+              style={{
+                border: `1px solid ${BLUE_LIGHT}`,
+                color: LOGO_BLUE,
+                backgroundColor: "white",
+              }}
+            >
+              View Programs
+            </Link>
+          </div>
+        </div>
+
+      </div>
     </section>
   );
 }
