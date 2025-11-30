@@ -42,7 +42,7 @@ function Navbar() {
             <a href="tel:+919820638066" className="flex items-center gap-2 hover:underline">
               <FaPhoneAlt aria-hidden="true" />
               <span>Call Us:</span>
-              <span className="font-semibold">+91 9820638066</span>
+              <span className="font-semibold">+91 9328194803</span>
             </a>
 
             <div className="flex items-center gap-2">
@@ -72,9 +72,7 @@ function Navbar() {
             <a href="https://www.instagram.com/growingkids_official/?__pwa=1" target="_blank" rel="noopener" className="hover:opacity-90" aria-label="Instagram">
               <FaInstagram size={18} />
             </a>
-            <a href="https://youtube.com" target="_blank" rel="noopener" className="hover:opacity-90" aria-label="YouTube">
-              <FaYoutube size={18} />
-            </a>
+            
           </div>
         </div>
       </div>

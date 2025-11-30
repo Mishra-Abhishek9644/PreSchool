@@ -3,6 +3,12 @@ import { Link } from "react-router-dom";
 const LOGO_BLUE = "#0778BE";
 const BLUE_TINT  = "#D7E6F3";
 const BLUE_LIGHT = "#A7CDE7";
+import pooja from '../assets/pooja.jpeg'
+import rose from '../assets/rose.jpeg'
+import kids from '../assets/kids.jpeg'
+import kids2 from '../assets/kids2.jpeg'
+import santa from '../assets/santa.jpeg'
+import santaa from '../assets/santa2.jpeg'
 
 // If you have local images, import them and add below.
 // import img1 from "../assets/gallery/classroom1.jpg";
@@ -11,12 +17,7 @@ const BLUE_LIGHT = "#A7CDE7";
 
 export default function Gallery() {
   // Use your local imports if available; otherwise these safe stock placeholders will show.
-  const images = [
-    // img1, img2, img3,
-    "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1596464716121-f6c1debb10fb?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=1200&q=80",
-  ];
+  const images = [pooja,rose,kids,kids2,santa,santaa];
 
   return (
     <section className="relative bg-white">
@@ -46,9 +47,7 @@ export default function Gallery() {
                 className="h-56 w-full object-cover"
                 loading="lazy"
               />
-              <figcaption className="p-3 text-xs text-gray-600 border-t" style={{ borderColor: BLUE_TINT }}>
-                {["Classroom", "Activity Time", "Daycare"][i] || "Our School"}
-              </figcaption>
+              
             </figure>
           ))}
         </div>

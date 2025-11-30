@@ -130,7 +130,7 @@ export default function About() {
               </p>
             </div>
             <div className="rounded-xl border p-6 shadow-sm text-left" style={{ borderColor: BLUE_TINT }}>
-              <h3 className="font-semibold text-gray-900">[Second Branch Name]</h3>
+              <h3 className="font-semibold text-gray-900">Second Branch </h3>
               <p className="text-sm text-gray-600 mt-2">Gali no 4, Sai Mohan 4, Plot No-357, near police chowki, Bhestan, Surat, Gujarat 395023</p>
               <p className="text-sm text-gray-600 mt-1">Hours: 7:30am – 1:00pm & 3:00pm – 6:00pm</p>
             </div>

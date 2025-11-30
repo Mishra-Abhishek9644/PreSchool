@@ -6,11 +6,15 @@ import Programs from "./pages/Programs";
 import Gallery from "./pages/Gallery";
 import Admission from "./pages/Admission";
 import Contact from "./pages/Contact";
+import ScrollToTop from "./components/ScroolToTop";  // make sure file name is correct
 
 export default function App() {
   return (
     <Router>
+      <ScrollToTop />   {/* Must be inside Router but before Routes */}
+
       <Navbar />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

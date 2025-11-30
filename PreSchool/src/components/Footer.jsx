@@ -55,7 +55,7 @@ export default function Footer() {
               📍 Plot No - A/80 , Sai Dipak Row House Residency, Nr. Vinayak Row
               House Bhestan - 395023.
             </li>
-            <li>📞 +91 9820638066</li>
+            <li>📞 +91 9328194803</li>
             <li>⏰ 7:30am – 1:00pm & 3:00pm – 6:00pm</li>
           </ul>
         </div>
@@ -83,13 +83,7 @@ export default function Footer() {
             >
               <FaInstagram size={16} />
             </a>
-            <a
-              href="#"
-              aria-label="YouTube"
-              className="h-9 w-9 flex items-center justify-center rounded-full bg-[#0778BE] text-white hover:bg-[#055A8F] transition"
-            >
-              <FaYoutube size={18} />
-            </a>
+           
           </div>
         </div>
       </div>

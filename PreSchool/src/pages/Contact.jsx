@@ -55,7 +55,7 @@ export default function Contact() {
                 <div>
                   <h3 className="font-semibold text-gray-900">Phone</h3>
                   <p className="text-sm text-gray-600 mt-1">
-                    <a href="tel:+919820638066" className="hover:underline">+91 9820638066</a>
+                    <a href="tel:+919820638066" className="hover:underline">+91 9328194803</a>
                   </p>
                   <div className="mt-2 flex items-center gap-3 text-sm">
                     <a
@@ -99,9 +99,7 @@ export default function Contact() {
                 <SocialBtn ariaLabel="Instagram" href="https://www.instagram.com/growingkids_official/?__pwa=1">
                   <FaInstagram />
                 </SocialBtn>
-                <SocialBtn ariaLabel="YouTube" href="#">
-                  <FaYoutube />
-                </SocialBtn>
+                
               </div>
             </Card>
           </div>
