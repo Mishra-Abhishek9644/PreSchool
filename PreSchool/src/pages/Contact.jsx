@@ -1,146 +1,159 @@
-// Contact.jsx — contact info + embedded Google Form + map (UI only)
-import { FaPhoneAlt, FaMapMarkerAlt, FaClock, FaEnvelope, FaWhatsapp, FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
+import {
+  FaPhoneAlt,
+  FaMapMarkerAlt,
+  FaClock,
+  FaEnvelope,
+  FaWhatsapp,
+  FaFacebookF,
+  FaInstagram,
+} from "react-icons/fa";
 
 const LOGO_BLUE = "#0778BE";
 const LOGO_BLUE_DARK = "#055A8F";
 const BLUE_LIGHT = "#A7CDE7";
-const BLUE_TINT  = "#D7E6F3";
+const BLUE_TINT = "#D7E6F3";
+const LOGO_YELLOW = "#FACC15";
 
-// Your Google Form (embedded)
-const CONTACT_FORM_EMBED = "https://docs.google.com/forms/d/e/1FAIpQLSfkMCvACO5o9TPhJmajztCp7iryFXyv5s5YVOZAqhtAVYF1NQ/viewform?embedded=true";
-// Non-embedded URL (for fallback/new-tab)
+const CONTACT_FORM_EMBED =
+  "https://docs.google.com/forms/d/e/1FAIpQLSfkMCvACO5o9TPhJmajztCp7iryFXyv5s5YVOZAqhtAVYF1NQ/viewform?embedded=true";
 const CONTACT_FORM_URL = CONTACT_FORM_EMBED.replace("?embedded=true", "");
 
 export default function Contact() {
   return (
-    <section className="relative bg-white">
-      <div className="container mx-auto max-w-7xl px-4 py-12 md:py-16">
+    <section className="relative bg-white overflow-hidden">
+
+      {/* Soft background blob */}
+      <div
+        aria-hidden
+        className="absolute -top-24 left-1/2 h-60 w-60 -translate-x-1/2 rounded-full blur-3xl"
+        style={{ backgroundColor: BLUE_TINT }}
+      />
+
+      <div className="relative container mx-auto max-w-7xl px-4 py-14">
+
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900">
-            Contact <span style={{ color: LOGO_BLUE }}>Growing Kids</span>
+        <div className="text-center max-w-3xl mx-auto animate-fadeUpContact">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900">
+            Contact{" "}
+            <span className="relative inline-block">
+              <span style={{ color: LOGO_BLUE }}>Growing Kids</span>
+             
+            </span>
           </h1>
           <p className="mt-4 text-gray-600 text-lg">
-            We’re happy to answer questions about admissions, daycare timings, and programs.
+            We’re happy to answer questions about admissions, daycare timings,
+            and programs.
           </p>
         </div>
 
-        {/* Info + Form (grid) */}
-        <div className="mt-12 grid lg:grid-cols-2 gap-8">
-          {/* Left: Contact Info */}
+        {/* Info + Form */}
+        <div className="mt-14 grid lg:grid-cols-2 gap-10 animate-fadeUpContact">
+
+          {/* Left: Info Cards */}
           <div className="space-y-6">
-            <Card>
-              <div className="flex items-start gap-3">
-                <IconBox><FaMapMarkerAlt /></IconBox>
-                <div>
-                  <h3 className="font-semibold text-gray-900">Address</h3>
-                  <p className="text-sm text-gray-600 mt-1">
-                    Plot No - A/80 , Sai Dipak Row House Residency, Nr. Vinayak Row House Bhestan - 395023.
-                  </p>
-                  <a
-                    className="inline-block mt-2 text-sm font-semibold"
-                    style={{ color: LOGO_BLUE }}
-                    href="https://maps.google.com/?q=Plot+No+-+A%2F80+Sai+Dipak+Row+House+Residency%2C+Nr.+Vinayak+Row+House+Bhestan+-+395023"
-                    target="_blank" rel="noopener noreferrer"
-                  >
-                    Open in Google Maps →
-                  </a>
-                </div>
-              </div>
-            </Card>
+            <InfoCard icon={<FaMapMarkerAlt />} title="Address">
+              <p className="text-sm text-gray-600">
+                Plot No - A/80 , Sai Dipak Row House Residency, Nr. Vinayak Row
+                House Bhestan - 395023.
+              </p>
+              <a
+                href="https://maps.google.com/?q=Plot+No+-+A%2F80+Sai+Dipak+Row+House+Residency"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mt-2 text-sm font-semibold"
+                style={{ color: LOGO_BLUE }}
+              >
+                Open in Google Maps →
+              </a>
+            </InfoCard>
 
-            <Card>
-              <div className="flex items-start gap-3">
-                <IconBox><FaPhoneAlt /></IconBox>
-                <div>
-                  <h3 className="font-semibold text-gray-900">Phone</h3>
-                  <p className="text-sm text-gray-600 mt-1">
-                    <a href="tel:+919820638066" className="hover:underline">+91 9328194803</a>
-                  </p>
-                  <div className="mt-2 flex items-center gap-3 text-sm">
-                    <a
-                      href="https://wa.me/919820638066"
-                      target="_blank" rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border"
-                      style={{ borderColor: BLUE_TINT, color: LOGO_BLUE }}
-                    >
-                      <FaWhatsapp /> WhatsApp
-                    </a>
-                    <a
-                      href="mailto:info@growingkids.example"
-                      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border"
-                      style={{ borderColor: BLUE_TINT, color: LOGO_BLUE }}
-                    >
-                      <FaEnvelope /> Email
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </Card>
-
-            <Card>
-              <div className="flex items-start gap-3">
-                <IconBox><FaClock /></IconBox>
-                <div>
-                  <h3 className="font-semibold text-gray-900">Hours</h3>
-                  <p className="text-sm text-gray-600 mt-1">
-                    7:30am – 1:00pm & 3:00pm – 6:00pm
-                  </p>
-                </div>
-              </div>
-            </Card>
-
-            <Card>
-              <h3 className="font-semibold text-gray-900">Social</h3>
+            <InfoCard icon={<FaPhoneAlt />} title="Phone">
+              <p className="text-sm text-gray-600">
+                <a href="tel:+919328194803" className="hover:underline">
+                  +91 9328194803
+                </a>
+              </p>
               <div className="mt-3 flex gap-3">
-                <SocialBtn ariaLabel="Facebook" href="https://www.facebook.com/profile.php?id=61572252436482">
+                <MiniBtn href="https://wa.me/919328194803">
+                  <FaWhatsapp /> WhatsApp
+                </MiniBtn>
+                <MiniBtn href="mailto:info@growingkids.example">
+                  <FaEnvelope /> Email
+                </MiniBtn>
+              </div>
+            </InfoCard>
+
+            <InfoCard icon={<FaClock />} title="Hours">
+              <p className="text-sm text-gray-600">
+                7:30am – 1:00pm & 3:00pm – 6:00pm
+              </p>
+            </InfoCard>
+
+            <InfoCard title="Social">
+              <div className="mt-2 flex gap-3">
+                <SocialBtn href="https://www.facebook.com/profile.php?id=61572252436482">
                   <FaFacebookF />
                 </SocialBtn>
-                <SocialBtn ariaLabel="Instagram" href="https://www.instagram.com/growingkids_official/?__pwa=1">
+                <SocialBtn href="https://www.instagram.com/growingkids_official/?__pwa=1">
                   <FaInstagram />
                 </SocialBtn>
-                
               </div>
-            </Card>
+            </InfoCard>
           </div>
 
-          {/* Right: Embedded Google Form */}
-          <div>
-            <div className="rounded-2xl border bg-white p-0 shadow-sm overflow-hidden" style={{ borderColor: BLUE_TINT }}>
-              <div className="p-6">
-                <h2 className="text-xl font-bold text-gray-900">Send us a message</h2>
-                <p className="text-sm text-gray-600 mt-1">Use the form below — we’ll get back to you soon.</p>
-              </div>
+          {/* Right: Form */}
+          <div
+            className="rounded-2xl border bg-white shadow-sm overflow-hidden animate-yellowGlowSoft"
+            style={{ borderColor: LOGO_YELLOW }}
+          >
+            <div className="p-6">
+              <h2 className="text-xl font-bold text-gray-900">
+                Send us a message
+              </h2>
+              <p className="text-sm text-gray-600 mt-1">
+                Use the form below — we’ll get back to you soon.
+              </p>
+            </div>
 
-              {/* Embed iframe — responsive heights for devices */}
-              <div className="w-full">
-                <iframe
-                  title="Growing Kids Contact Form"
-                  src={CONTACT_FORM_EMBED}
-                  loading="lazy"
-                  className="w-full h-[650px] sm:h-[800px] md:h-[950px] lg:h-[1000px] border-0"
-                  aria-label="Contact form"
-                />
-              </div>
+            <iframe
+              title="Growing Kids Contact Form"
+              src={CONTACT_FORM_EMBED}
+              loading="lazy"
+              className="w-full h-[650px] sm:h-[800px] md:h-[950px] lg:h-[1000px] border-0"
+              aria-label="Contact form"
+            />
 
-              {/* Fallback CTA */}
-              <div className="p-6 text-center">
-                <p className="text-sm text-gray-600 mb-3">If the form doesn't load for you, open it in a new tab:</p>
-                <a
-                  href={CONTACT_FORM_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block rounded-xl bg-[#0778BE] px-6 py-3 text-white font-semibold shadow hover:bg-[#055A8F] transition"
-                >
-                  Open Contact Form
-                </a>
-              </div>
+            <div className="p-6 text-center">
+              <p className="text-sm text-gray-600 mb-3">
+                If the form doesn’t load, open it in a new tab:
+              </p>
+              <a
+                href={CONTACT_FORM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block rounded-xl px-6 py-3 font-semibold text-white shadow transition hover:-translate-y-1"
+                style={{
+                  backgroundColor: LOGO_BLUE,
+                  border: `2px solid ${LOGO_YELLOW}`,
+                }}
+                onMouseEnter={(e) =>
+                  (e.currentTarget.style.backgroundColor = LOGO_BLUE_DARK)
+                }
+                onMouseLeave={(e) =>
+                  (e.currentTarget.style.backgroundColor = LOGO_BLUE)
+                }
+              >
+                Open Contact Form
+              </a>
             </div>
           </div>
         </div>
 
         {/* Map */}
-        <div className="mt-12 rounded-2xl overflow-hidden border" style={{ borderColor: BLUE_TINT }}>
+        <div
+          className="mt-14 rounded-2xl overflow-hidden border animate-fadeUpContact"
+          style={{ borderColor: LOGO_YELLOW }}
+        >
           <iframe
             title="Growing Kids Preschool Location"
             width="100%"
@@ -157,35 +170,54 @@ export default function Contact() {
   );
 }
 
-/* ---------- tiny UI helpers ---------- */
-function Card({ children }) {
-  return (
-    <div className="rounded-2xl border bg-white p-6 shadow-sm" style={{ borderColor: BLUE_TINT }}>
-      {children}
-    </div>
-  );
-}
+/* ---------- UI helpers ---------- */
 
-function IconBox({ children }) {
+function InfoCard({ icon, title, children }) {
   return (
     <div
-      className="mt-1 h-10 w-10 flex items-center justify-center rounded-lg"
-      style={{ backgroundColor: BLUE_TINT, color: LOGO_BLUE }}
+      className="rounded-2xl border bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md animate-fadeUpContact"
+      style={{ borderColor: LOGO_YELLOW }}
     >
-      {children}
+      {icon && (
+        <div
+          className="mb-3 h-10 w-10 flex items-center justify-center rounded-lg animate-iconPulse"
+          style={{ backgroundColor: BLUE_TINT, color: LOGO_BLUE }}
+        >
+          {icon}
+        </div>
+      )}
+      <h3 className="font-semibold text-gray-900">{title}</h3>
+      <div className="mt-2">{children}</div>
     </div>
   );
 }
 
-function SocialBtn({ children, ariaLabel, href }) {
+function MiniBtn({ href, children }) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={ariaLabel}
-      className="h-9 w-9 rounded-full flex items-center justify-center border transition hover:opacity-90"
-      style={{ borderColor: BLUE_TINT, color: LOGO_BLUE }}
+      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border text-sm transition hover:-translate-y-0.5"
+      style={{ borderColor: LOGO_YELLOW, color: LOGO_BLUE }}
+    >
+      {children}
+    </a>
+  );
+}
+
+function SocialBtn({ href, children }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="h-10 w-10 flex items-center justify-center rounded-full transition hover:-translate-y-1 animate-floatSocial"
+      style={{
+        backgroundColor: LOGO_BLUE,
+        color: "white",
+        border: `2px solid ${LOGO_YELLOW}`,
+      }}
     >
       {children}
     </a>

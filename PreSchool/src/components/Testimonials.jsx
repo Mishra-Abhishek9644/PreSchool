@@ -1,5 +1,8 @@
-// Testimonials.jsx — JS + Tailwind, logo-blue palette
 import { Link } from "react-router-dom";
+
+const LOGO_BLUE = "#0778BE";
+const LOGO_BLUE_DARK = "#055A8F";
+const LOGO_YELLOW = "#FACC15";
 
 export default function Testimonials() {
   const quotes = [
@@ -24,72 +27,104 @@ export default function Testimonials() {
   ];
 
   return (
-    <section className="relative bg-gradient-to-b from-white to-[#ECF5FB]">
-      {/* background accent (soft blue) */}
+    <section className="relative overflow-hidden bg-gradient-to-b from-white to-[#ECF5FB]">
+
+      {/* Floating background blob */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-16 right-10 h-40 w-40 rounded-full blur-3xl"
+        className="absolute -top-20 right-10 h-52 w-52 rounded-full blur-3xl animate-blobFloat"
         style={{ backgroundColor: "#D7E6F3" }}
       />
 
-      <div className="relative container mx-auto max-w-7xl px-4 py-12 md:py-16">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900">
-            What Parents Say
+      <div className="relative container mx-auto max-w-7xl px-4 py-14">
+
+        {/* Heading */}
+        <div className="mx-auto max-w-2xl text-center animate-fadeUpSoft">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">
+            What{" "}
+            <span className="relative inline-block">
+              <span style={{ color: LOGO_BLUE }}>Parents</span>
+              
+            </span>{" "}
+            Say
           </h2>
-          <p className="mt-3 text-gray-600">Real words from our school community.</p>
+          <p className="mt-3 text-gray-600">
+            Real words from our school community.
+          </p>
         </div>
 
-        {/* Cards */}
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {quotes.map((q) => (
+        {/* Testimonial Cards */}
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {quotes.map((q, i) => (
             <figure
               key={q.name}
-              className="rounded-2xl border border-[#D7E6F3] bg-white p-6 shadow-sm"
+              className="group rounded-2xl bg-white p-6 shadow-sm border transition hover:-translate-y-2 hover:shadow-xl animate-fadeUpSoft"
+              style={{
+                borderColor: LOGO_YELLOW,
+                animationDelay: `${i * 0.12}s`,
+              }}
             >
               <div className="flex items-center gap-3">
-                <div className="h-10 w-10 shrink-0 rounded-full bg-[#ECF5FB]" />
+                {/* Avatar */}
+                <div
+                  className="h-11 w-11 shrink-0 rounded-full bg-[#ECF5FB] animate-floatAvatar"
+                  style={{ border: `2px solid ${LOGO_YELLOW}` }}
+                />
                 <figcaption>
                   <p className="font-semibold text-gray-900">{q.name}</p>
                   <p className="text-xs text-gray-500">{q.role}</p>
                 </figcaption>
               </div>
-              <blockquote className="mt-4 text-gray-700 text-sm leading-relaxed">
+
+              <blockquote className="mt-4 text-gray-700 text-sm leading-relaxed animate-quotePulse">
                 “{q.text}”
               </blockquote>
-              <div className="mt-4 h-1 w-10 rounded-full bg-[#A7CDE7]" />
+
+              <div
+                className="mt-4 h-1 w-10 rounded-full transition-all group-hover:w-20"
+                style={{ backgroundColor: LOGO_YELLOW }}
+              />
             </figure>
           ))}
         </div>
 
-        {/* Small CTA */}
+        {/* CTA */}
         <div
-          className="mt-10 flex flex-col items-center justify-between gap-4 rounded-2xl border border-dashed p-5 text-center md:flex-row md:text-left"
-          style={{ borderColor: "#A7CDE7", backgroundColor: "rgba(215,230,243,0.35)" }}
+          className="mt-14 flex flex-col items-center justify-between gap-4 rounded-2xl border border-dashed p-6 text-center md:flex-row md:text-left animate-fadeUpSoft"
+          style={{
+            borderColor: LOGO_YELLOW,
+            backgroundColor: "rgba(215,230,243,0.35)",
+          }}
         >
           <p className="text-sm text-gray-700">
             Ready to know more or see our classrooms?
           </p>
+
           <div className="flex flex-col sm:flex-row gap-3">
             <Link
               to="/about"
-              className="inline-flex items-center justify-center rounded-xl px-5 py-2.5 text-white text-sm font-semibold transition"
-              style={{ backgroundColor: "#0778BE" }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#055A8F")}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#0778BE")}
+              className="inline-flex items-center justify-center rounded-xl px-6 py-2.5 text-white text-sm font-semibold transition hover:-translate-y-1 animate-yellowGlow"
+              style={{
+                backgroundColor: LOGO_BLUE,
+                border: `2px solid ${LOGO_YELLOW}`,
+              }}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.backgroundColor = LOGO_BLUE_DARK)
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.backgroundColor = LOGO_BLUE)
+              }
             >
               About Us
             </Link>
+
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center rounded-xl px-5 py-2.5 text-sm font-semibold"
+              className="inline-flex items-center justify-center rounded-xl px-6 py-2.5 text-sm font-semibold bg-white transition hover:-translate-y-1 hover:shadow-md"
               style={{
-                border: "1px solid #A7CDE7",
-                backgroundColor: "white",
-                color: "#0778BE",
+                color: LOGO_BLUE,
+                border: `2px solid ${LOGO_YELLOW}`,
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F7FBFE")}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "white")}
             >
               Contact
             </Link>

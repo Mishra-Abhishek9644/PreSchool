@@ -1,166 +1,161 @@
 import { Link } from "react-router-dom";
 import Herobg from "../assets/Herobg.jpg";
+import kids from "../assets/kids.jpeg";
+
 
 // Brand palette
 const LOGO_BLUE = "#0778BE";
 const LOGO_BLUE_DARK = "#055A8F";
-const BLUE_LIGHT = "#A7CDE7";   // light accent
-const BLUE_TINT = "#D7E6F3";   // very light backgrounds
+const BLUE_TINT = "#D7E6F3";
+const LOGO_YELLOW = "#FACC15";
 
 export default function Hero() {
   return (
     <section className="relative overflow-hidden">
+
       {/* Top promo bar */}
-<div className="text-white bg-[#0778BE]">
-  <div className="container mx-auto max-w-7xl px-4 py-2 flex flex-col md:flex-row items-center justify-between gap-2">
-    <p className="text-sm md:text-base font-medium">
-      Admissions Open <span className="font-semibold">2025–26</span> · Playgroup · Nursery · Jr KG · Sr KG
-    </p>
-
-    <div className="flex items-center gap-3 text-sm">
-      <Link
-        to="/admission"
-        className="rounded-full bg-white px-4 py-1.5 font-semibold text-[#0778BE] shadow hover:bg-gray-100 transition"
-      >
-        View Admissions
-      </Link>
-      <Link
-        to="/contact"
-        className="rounded-full bg-white px-4 py-1.5 font-semibold text-[#0778BE] shadow hover:bg-gray-100 transition"
-      >
-        Contact Us
-      </Link>
-    </div>
-  </div>
-</div>
-
-      {/* Soft background accents (blue-tinted) */}
-      {/* <div
-        aria-hidden
-        className="pointer-events-none absolute -top-24 -right-20 h-80 w-80 rounded-full blur-3xl"
-        style={{ backgroundColor: BLUE_TINT }}
-      />
       <div
-        aria-hidden
-        className="pointer-events-none absolute -bottom-24 -left-20 h-80 w-80 rounded-full blur-3xl"
-        style={{ backgroundColor: BLUE_TINT }}
-      /> */}
+        className="text-white animate-fadeUp"
+        style={{
+          backgroundColor: LOGO_BLUE,
+        }}
+      >
+        <div className="container mx-auto max-w-7xl px-4 py-2 flex flex-col md:flex-row items-center justify-between gap-2">
+          <p className="text-sm md:text-base font-medium">
+            Admissions Open <span className="font-semibold">2025–26</span> ·
+            Playgroup · Nursery · Jr KG · Sr KG
+          </p>
 
-      <div className="relative container mx-auto max-w-7xl px-4 py-12 md:py-16 grid md:grid-cols-2 items-center gap-10">
-        {/* Left: Text */}
-        <div className="order-2 md:order-1">
+          <div className="flex items-center gap-3 text-sm">
+            {["View Admissions", "Contact Us"].map((text, i) => (
+              <Link
+                key={i}
+                to={i === 0 ? "/admission" : "/contact"}
+                className="rounded-full bg-white px-4 py-1.5 font-semibold shadow transition hover:-translate-y-0.5 hover:shadow-lg"
+                style={{
+                  color: LOGO_BLUE,
+                  border: `2px solid ${LOGO_YELLOW}`,
+                }}
+              >
+                {text}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="relative container mx-auto max-w-7xl px-4 py-14 grid md:grid-cols-2 items-center gap-12">
+
+        {/* LEFT */}
+        <div className="animate-fadeUp-delay">
+
+          {/* Badge */}
           <span
-            className="inline-block rounded-full px-3 py-1 text-xs font-semibold"
-            style={{ backgroundColor: BLUE_TINT, color: LOGO_BLUE }}
+            className="inline-block rounded-full px-4 py-1 text-xs font-semibold animate-glow"
+            style={{
+              backgroundColor: BLUE_TINT,
+              color: LOGO_BLUE,
+              border: `1.5px solid ${LOGO_YELLOW}`,
+            }}
           >
             Nurturing Ages 2–6
           </span>
 
-          <h1 className="mt-3 text-3xl leading-tight sm:text-4xl md:text-5xl font-extrabold text-gray-900">
-            Where Little Minds <span style={{ color: LOGO_BLUE }}>Blossom</span>
+          <h1 className="mt-4 text-4xl md:text-5xl font-extrabold text-gray-900">
+            Where Little Minds{" "}
+            <span className="relative">
+              <span style={{ color: LOGO_BLUE }}>Blossom</span>
+             
+            </span>
           </h1>
 
-          <p className="mt-4 text-gray-600 text-base md:text-lg max-w-xl">
-            A warm, safe and joyful preschool with caring teachers, play-based learning and bright classrooms designed for
-            exploration. We focus on confidence, kindness and early skills.
+          <p className="mt-4 text-gray-600 max-w-xl">
+            A warm, safe and joyful preschool with caring teachers, play-based
+            learning and bright classrooms designed for exploration.
           </p>
 
-          {/* Quick highlights */}
-          <ul className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
-            <li className="rounded-xl p-3 text-gray-800" style={{ backgroundColor: BLUE_TINT }}>
-              Safe & hygienic campus
-            </li>
-            <li className="rounded-xl p-3 text-gray-800" style={{ backgroundColor: "#E6F0F8" }}>
-              Play-based curriculum
-            </li>
-            <li className="rounded-xl p-3 text-gray-800" style={{ backgroundColor: "#ECF5FB" }}>
-              Caring teachers
-            </li>
+          {/* Highlights */}
+          <ul className="mt-6 grid sm:grid-cols-3 gap-4 text-sm">
+            {[
+              "Safe & hygienic campus",
+              "Play-based curriculum",
+              "Caring teachers",
+            ].map((item, i) => (
+              <li
+                key={i}
+                className="rounded-xl p-3 transition hover:-translate-y-1 hover:shadow-md"
+                style={{
+                  backgroundColor: BLUE_TINT,
+                  border: `1px solid ${LOGO_YELLOW}`,
+                }}
+              >
+                {item}
+              </li>
+            ))}
           </ul>
 
           {/* CTAs */}
-          <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+          <div className="mt-8 flex flex-wrap gap-4">
             <Link
               to="/about"
-              className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-white font-semibold shadow-md transition"
-              style={{ backgroundColor: LOGO_BLUE }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = LOGO_BLUE_DARK)}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = LOGO_BLUE)}
+              className="rounded-2xl px-7 py-3 text-white font-semibold transition transform hover:-translate-y-1 hover:shadow-xl animate-glow"
+              style={{
+                backgroundColor: LOGO_BLUE,
+                border: `2px solid ${LOGO_YELLOW}`,
+              }}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.backgroundColor = LOGO_BLUE_DARK)
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.backgroundColor = LOGO_BLUE)
+              }
             >
               Learn About Us
             </Link>
 
-            <Link
-              to="/admission"
-              className="inline-flex items-center justify-center rounded-2xl px-6 py-3 font-semibold transition"
-              style={{
-                border: `1px solid ${BLUE_LIGHT}`,
-                backgroundColor: "white",
-                color: LOGO_BLUE,
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#F7FBFE")}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "white")}
-            >
-              Admissions
-            </Link>
-
-            {/* CHANGED: outlined blue so it never disappears on light bg */}
-            <Link
-              to="/contact"
-              className="inline-flex items-center justify-center rounded-2xl px-5 py-3 font-semibold transition"
-              style={{
-                color: LOGO_BLUE,
-                border: `1px solid ${BLUE_LIGHT}`,
-                backgroundColor: "white",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = BLUE_TINT)}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "white")}
-            >
-              Contact
-            </Link>
-          </div>
-
-          {/* Trust row */}
-          <div className="mt-8 grid grid-cols-3 gap-4 text-center">
-            <div className="rounded-xl border p-3" style={{ borderColor: BLUE_TINT }}>
-              <p className="text-xl font-extrabold text-gray-900">Small Groups</p>
-              <p className="text-xs text-gray-500">Personal attention</p>
-            </div>
-            <div className="rounded-xl border p-3" style={{ borderColor: BLUE_TINT }}>
-              <p className="text-xl font-extrabold text-gray-900">Parent-First</p>
-              <p className="text-xs text-gray-500">Easy updates</p>
-            </div>
-            <div className="rounded-xl border p-3" style={{ borderColor: BLUE_TINT }}>
-              <p className="text-xl font-extrabold text-gray-900">Bright Spaces</p>
-              <p className="text-xs text-gray-500">Child-friendly rooms</p>
-            </div>
-          </div>
-
-          {/* Meta line */}
-          <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-gray-600">
-            <div>Hours: 7:30am – 1:00pm & 3:00pm – 6:00pm</div>
-            <div>Plot No - A/80 , Sai Dipak Row House Residency, Nr. Vinayak Row House Bhestan - 395023.</div>
+            {["Admissions", "Contact"].map((text, i) => (
+              <Link
+                key={i}
+                to={text === "Admissions" ? "/admission" : "/contact"}
+                className="rounded-2xl px-6 py-3 font-semibold bg-white transition hover:-translate-y-1 hover:shadow-md"
+                style={{
+                  color: LOGO_BLUE,
+                  border: `2px solid ${LOGO_YELLOW}`,
+                }}
+              >
+                {text}
+              </Link>
+            ))}
           </div>
         </div>
 
-        {/* Right: Image */}
-        <div className="order-1 md:order-2 relative">
-          <div className="relative mx-auto max-w-md md:max-w-lg">
+        {/* RIGHT IMAGE */}
+        <div className="relative animate-float">
+          <div className="relative mx-auto max-w-lg">
             <img
-              src={Herobg}
-              alt="Happy preschoolers playing and learning together"
-              className="w-full rounded-3xl shadow-2xl object-cover"
+              src={kids}
+              alt="Happy preschoolers"
+              className="w-full rounded-3xl object-cover shadow-2xl transition hover:scale-[1.02]"
+              style={{ border: `3px solid ${LOGO_YELLOW}` }}
             />
+
             {/* Floating badges */}
             <div
-              className="absolute -left-3 -top-3 rounded-2xl bg-white shadow px-3 py-2 text-xs font-semibold"
-              style={{ color: LOGO_BLUE }}
+              className="absolute -left-4 -top-4 rounded-2xl bg-white px-4 py-2 text-xs font-semibold animate-float"
+              style={{
+                color: LOGO_BLUE,
+                border: `1.5px solid ${LOGO_YELLOW}`,
+              }}
             >
               Play • Learn • Grow
             </div>
+
             <div
-              className="absolute -right-3 bottom-6 rounded-2xl bg-white shadow px-3 py-2 text-xs font-semibold"
-              style={{ color: LOGO_BLUE }}
+              className="absolute -right-4 bottom-6 rounded-2xl bg-white px-4 py-2 text-xs font-semibold animate-float"
+              style={{
+                color: LOGO_BLUE,
+                border: `1.5px solid ${LOGO_YELLOW}`,
+              }}
             >
               New Session 2025–26
             </div>

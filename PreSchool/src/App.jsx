@@ -7,10 +7,12 @@ import Gallery from "./pages/Gallery";
 import Admission from "./pages/Admission";
 import Contact from "./pages/Contact";
 import ScrollToTop from "./components/ScroolToTop";  // make sure file name is correct
+import InquiryModal from "./components/InquiryModal";
 
 export default function App() {
   return (
     <Router>
+       <InquiryModal />
       <ScrollToTop />   {/* Must be inside Router but before Routes */}
 
       <Navbar />

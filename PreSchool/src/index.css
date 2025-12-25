@@ -1,1 +1,495 @@
 @import "tailwindcss";
+
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(250, 204, 21, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 18px rgba(250, 204, 21, 0.6);
+  }
+}
+
+.animate-fadeUp {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.animate-fadeUp-delay {
+  animation: fadeUp 0.8s ease forwards;
+  animation-delay: 0.2s;
+}
+
+.animate-float {
+  animation: floatSlow 4s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes navGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(250, 204, 21, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(250, 204, 21, 0.6);
+  }
+}
+
+.animate-slideDown {
+  animation: slideDown 0.35s ease forwards;
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 3px;
+  background: #facc15;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+@keyframes fadeUpSoft {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes floatIcon {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes yellowGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(250, 204, 21, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(250, 204, 21, 0.6);
+  }
+}
+
+@keyframes blobMove {
+  0%, 100% {
+    transform: translate(-50%, 0) scale(1);
+  }
+  50% {
+    transform: translate(-48%, -10px) scale(1.05);
+  }
+}
+
+.animate-fadeUpSoft {
+  animation: fadeUpSoft 0.7s ease forwards;
+}
+
+.animate-floatIcon {
+  animation: floatIcon 3s ease-in-out infinite;
+}
+
+.animate-yellowGlow {
+  animation: yellowGlow 2.8s ease-in-out infinite;
+}
+
+.animate-blob {
+  animation: blobMove 6s ease-in-out infinite;
+}
+
+
+@keyframes fadeUpSoft {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes badgePop {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes yellowGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(250, 204, 21, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 18px rgba(250, 204, 21, 0.6);
+  }
+}
+
+@keyframes blobFloat {
+  0%, 100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-48%, -12px);
+  }
+}
+
+.animate-fadeUpSoft {
+  animation: fadeUpSoft 0.7s ease forwards;
+}
+
+.animate-badgePop {
+  animation: badgePop 0.6s ease forwards;
+}
+
+.animate-yellowGlow {
+  animation: yellowGlow 2.6s ease-in-out infinite;
+}
+
+.animate-blobFloat {
+  animation: blobFloat 6s ease-in-out infinite;
+}
+
+@keyframes fadeUpSoft {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatAvatar {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes quotePulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.92;
+  }
+}
+
+@keyframes yellowGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(250, 204, 21, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 16px rgba(250, 204, 21, 0.6);
+  }
+}
+
+.animate-fadeUpSoft {
+  animation: fadeUpSoft 0.7s ease forwards;
+}
+
+.animate-floatAvatar {
+  animation: floatAvatar 3s ease-in-out infinite;
+}
+
+.animate-quotePulse {
+  animation: quotePulse 3.5s ease-in-out infinite;
+}
+
+.animate-yellowGlow {
+  animation: yellowGlow 2.8s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes fadeUpCTA {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatDot {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+}
+
+@keyframes yellowGlowStrong {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(250, 204, 21, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 22px rgba(250, 204, 21, 0.85);
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientShift 6s ease infinite;
+}
+
+.animate-fadeUpCTA {
+  animation: fadeUpCTA 0.8s ease forwards;
+}
+
+.animate-floatDot {
+  animation: floatDot 4s ease-in-out infinite;
+}
+
+.animate-yellowGlowStrong {
+  animation: yellowGlowStrong 2.5s ease-in-out infinite;
+}
+@keyframes fadeUpFooter {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes socialFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes yellowGlowSoft {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(250, 204, 21, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(250, 204, 21, 0.55);
+  }
+}
+
+.animate-footer {
+  animation: fadeUpFooter 0.8s ease forwards;
+}
+
+.animate-social {
+  animation: socialFloat 3.5s ease-in-out infinite;
+}
+
+.animate-yellowGlowSoft {
+  animation: yellowGlowSoft 3s ease-in-out infinite;
+}
+
+@keyframes fadeUpPage {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatImage {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes underlineGrow {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.animate-fadeUpPage {
+  animation: fadeUpPage 0.9s ease forwards;
+}
+
+.animate-floatImage {
+  animation: floatImage 4s ease-in-out infinite;
+}
+
+.animate-underlineGrow {
+  animation: underlineGrow 0.5s ease forwards;
+}
+@keyframes fadeUpLong {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes underlineGrow {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes yellowGlowSoft {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(250, 204, 21, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 18px rgba(250, 204, 21, 0.6);
+  }
+}
+
+.animate-fadeUpLong {
+  animation: fadeUpLong 0.9s ease forwards;
+}
+
+.animate-floatSlow {
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+.animate-underlineGrow {
+  animation: underlineGrow 0.5s ease forwards;
+}
+
+.animate-yellowGlowSoft {
+  animation: yellowGlowSoft 3s ease-in-out infinite;
+}
+@keyframes fadeUpAdmission {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseStep {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes yellowGlowSoft {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(250, 204, 21, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 18px rgba(250, 204, 21, 0.6);
+  }
+}
+
+.animate-fadeUpAdmission {
+  animation: fadeUpAdmission 0.85s ease forwards;
+}
+
+.animate-pulseStep {
+  animation: pulseStep 2.8s ease-in-out infinite;
+}
+
+.animate-yellowGlowSoft {
+  animation: yellowGlowSoft 3s ease-in-out infinite;
+}
+
